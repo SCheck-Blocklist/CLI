@@ -86,3 +86,8 @@ For more information on each command and its options:
 ```bash
 scheckbl-cli --help
 scheckbl-cli <command> --help
+```
+
+## License
+
+This project is licensed under the MIT License.
