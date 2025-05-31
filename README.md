@@ -1,21 +1,37 @@
-# scheckbl-cli
 
-**A command-line interface for interacting with the SCheck Blocklist datasets.**
-> Actually Version: `1.1.0`
-> 
-> Our Websites: [scheck-blocklist.vercel.app](https://scheck-blocklist.vercel.app)
+# SCheck Blocklist CLI
+
+**Command-line interface tool for interacting with SCheck Blocklist datasets.**  
+> Current Version: `1.1.0`  
+>  
+> Our Website: [scheck-blocklist.vercel.app](https://scheck-blocklist.vercel.app)
+
+---
+
+## Content
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Check](#check-if-a-keyword-exists)
+  - [Find](#find-hits-in-text)
+  - [Gett](#retrieve-full-list)
+  - [Similiar](#find-similar-entries)
+- [Help](#help)
+
+---
 
 ## Installation
 
-Install the CLI tool using pip:
+Install the CLI tool via pip:
 
 ```bash
 pip install scheckbl-cli
-```
+````
+
+---
 
 ## Usage
 
-The CLI provides several commands to interact with the blocklist:
+The CLI provides multiple commands to interact with blocklists.
 
 ### Check if a keyword exists
 
@@ -29,7 +45,11 @@ Example:
 scheckbl-cli check phrases vulgarisms "example_word"
 ```
 
-### Find any hits in text
+---
+
+### Find hits in text
+
+Searches if any blocklisted entries appear in the given text:
 
 ```bash
 scheckbl-cli find <type_name> <category> <text>
@@ -41,18 +61,22 @@ Example:
 scheckbl-cli find phrases vulgarisms "This is some sample text."
 ```
 
-### Retrieve full list and save to file
+---
+
+### Retrieve full list
+
+Get the full blocklist and save or output it:
 
 ```bash
 scheckbl-cli get <type_name> <category> [options]
 ```
 
-Options:
+**Options:**
 
-- `-f, --filename NAME`
-- `-r, --regex PATTERN`
-- `-o, --output FILE`
-- `--stdout`
+* `-f, --filename NAME` — specify filename
+* `-r, --regex PATTERN` — filter results by regex
+* `-o, --output FILE` — save output to a file
+* `--stdout` — print output to standard output
 
 Example:
 
@@ -60,18 +84,22 @@ Example:
 scheckbl-cli get phrases vulgarisms --stdout
 ```
 
-### Find entries similar to a given phrase
+---
+
+### Find similar entries
+
+Find blocklist entries similar to a given phrase:
 
 ```bash
 scheckbl-cli similar <type_name> <category> <phrase> [options]
 ```
 
-Options:
+**Options:**
 
-- `-t, --threshold FLOAT`
-- `--json`
-- `-o, --output FILE`
-- `--stdout`
+* `-t, --threshold FLOAT` — similarity threshold (default 0.6)
+* `--json` — output results as JSON
+* `-o, --output FILE` — save output to a file
+* `--stdout` — print output to standard output
 
 Example:
 
@@ -79,15 +107,15 @@ Example:
 scheckbl-cli similar phrases vulgarisms "example_phrase" --json
 ```
 
+---
+
 ## Help
 
-For more information on each command and its options:
+For detailed help on commands and options:
 
 ```bash
 scheckbl-cli --help
 scheckbl-cli <command> --help
 ```
 
-## License
-
-This project is licensed under the MIT License.
+---
